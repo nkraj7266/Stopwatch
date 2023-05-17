@@ -1,6 +1,6 @@
-let hour = 0;
-let minute = 0;
-let second = 0;
+let hour = 59;
+let minute = 58;
+let second = 58;
 
 let flag = false;
 let cnt = 0;
@@ -32,9 +32,11 @@ function reset() {
 function stopwatch() {
   if (flag) {
     second++;
+
     if (second < 10) {
       document.getElementById("sec").innerHTML = "0" + second;
     } else document.getElementById("sec").innerHTML = second;
+
     if (second > 59) {
       document.getElementById("sec").innerHTML = "00";
       second = 0;
@@ -43,17 +45,18 @@ function stopwatch() {
         document.getElementById("min").innerHTML = "0" + minute;
       } else document.getElementById("min").innerHTML = minute;
     }
+
     if (minute > 59) {
       document.getElementById("min").innerHTML = "00";
       minute = 0;
       hour++;
       if (hour < 10) {
-        document.getElementById("min").innerHTML = "0" + hour;
-      } else document.getElementById("min").innerHTML = hour;
+        document.getElementById("hr").innerHTML = "0" + hour;
+      } else document.getElementById("hr").innerHTML = hour;
     }
-    if (hour == 59) {
-      reset();
-    }
+
+    if (hour > 23) reset();
+
     setTimeout("stopwatch()", 1000);
   }
 }
