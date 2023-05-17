@@ -1,6 +1,6 @@
-let hour = 59;
-let minute = 58;
-let second = 58;
+let hour = 0;
+let minute = 0;
+let second = 0;
 
 let flag = false;
 let cnt = 0;
